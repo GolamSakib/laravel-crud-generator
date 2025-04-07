@@ -1,0 +1,40 @@
+<?php
+
+namespace App\Http\Controllers\Api;
+
+use App\Http\Controllers\Controller;
+use App\Models\{{modelName}};
+use App\Http\Requests\{{modelName}}Request;
+use Illuminate\Http\Response;
+
+class {{modelName}}Controller extends Controller
+{
+    public function index()
+    {
+        ${{modelNamePluralLower}} = {{modelName}}::latest()->paginate(10);
+        return response()->json(${{modelNamePluralLower}});
+    }
+
+    public function store({{modelName}}Request $request)
+    {
+        ${{modelNameLower}} = {{modelName}}::create($request->validated());
+        return response()->json(${{modelNameLower}}, Response::HTTP_CREATED);
+    }
+
+    public function show({{modelName}} ${{modelNameLower}})
+    {
+        return response()->json(${{modelNameLower}});
+    }
+
+    public function update({{modelName}}Request $request, {{modelName}} ${{modelNameLower}})
+    {
+        ${{modelNameLower}}->update($request->validated());
+        return response()->json(${{modelNameLower}});
+    }
+
+    public function destroy({{modelName}} ${{modelNameLower}})
+    {
+        ${{modelNameLower}}->delete();
+        return response()->json(null, Response::HTTP_NO_CONTENT);
+    }
+}

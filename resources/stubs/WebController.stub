@@ -1,0 +1,52 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\{{modelName}};
+use App\Http\Requests\{{modelName}}Request;
+use Illuminate\Http\Request;
+
+class {{modelName}}Controller extends Controller
+{
+    public function index()
+    {
+        ${{modelNamePluralLower}} = {{modelName}}::latest()->paginate(10);
+        return view('{{modelNameLower}}.index', compact('{{modelNamePluralLower}}'));
+    }
+
+    public function create()
+    {
+        return view('{{modelNameLower}}.create');
+    }
+
+    public function store({{modelName}}Request $request)
+    {
+        ${{modelNameLower}} = {{modelName}}::create($request->validated());
+        return redirect()->route('{{modelNameLower}}.index')
+            ->with('success', '{{modelName}} created successfully.');
+    }
+
+    public function show({{modelName}} ${{modelNameLower}})
+    {
+        return view('{{modelNameLower}}.show', compact('{{modelNameLower}}'));
+    }
+
+    public function edit({{modelName}} ${{modelNameLower}})
+    {
+        return view('{{modelNameLower}}.edit', compact('{{modelNameLower}}'));
+    }
+
+    public function update({{modelName}}Request $request, {{modelName}} ${{modelNameLower}})
+    {
+        ${{modelNameLower}}->update($request->validated());
+        return redirect()->route('{{modelNameLower}}.index')
+            ->with('success', '{{modelName}} updated successfully.');
+    }
+
+    public function destroy({{modelName}} ${{modelNameLower}})
+    {
+        ${{modelNameLower}}->delete();
+        return redirect()->route('{{modelNameLower}}.index')
+            ->with('success', '{{modelName}} deleted successfully.');
+    }
+}

@@ -8,10 +8,12 @@ return new class extends Migration
 {
     public function up()
     {
-        Schema::create('products', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->decimal('price');
+        Schema::create('orders', function (Blueprint $table) {
+            $table->bigInteger('id');
+            $table->string('order_number');
+            $table->enum('status', ['pending','processing','completed']);
+            $table->decimal('total');
+            $table->text('notes');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -19,6 +21,6 @@ return new class extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('products');
+        Schema::dropIfExists('orders');
     }
 };
