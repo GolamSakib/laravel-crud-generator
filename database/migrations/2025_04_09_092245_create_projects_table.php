@@ -8,9 +8,11 @@ return new class extends Migration
 {
     public function up()
     {
-        Schema::create('{{tableName}}', function (Blueprint $table) {
+        Schema::create('projects', function (Blueprint $table) {
             $table->id();
-            {{fields}};
+            $table->string('name');
+            $table->text('description');
+            $table->enum('status', ['open','closed']);
             $table->timestamps();
             $table->softDeletes();
         });
@@ -18,6 +20,6 @@ return new class extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('{{tableName}}');
+        Schema::dropIfExists('projects');
     }
 };

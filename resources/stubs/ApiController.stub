@@ -21,20 +21,20 @@ class {{modelName}}Controller extends Controller
         return response()->json(${{modelNameLower}}, Response::HTTP_CREATED);
     }
 
-    public function show({{modelName}} ${{modelNameLower}})
+    public function show({{modelName}} ${{modelNameSingularLower}})
     {
-        return response()->json(${{modelNameLower}});
+        return response()->json(${{modelNameSingularLower}});
     }
 
-    public function update({{modelName}}Request $request, {{modelName}} ${{modelNameLower}})
+    public function update({{modelName}}Request $request, {{modelName}} ${{modelNameSingularLower}})
     {
-        ${{modelNameLower}}->update($request->validated());
-        return response()->json(${{modelNameLower}});
+        ${{modelNameSingularLower}}->update($request->validated());
+        return response()->json(${{modelNameSingularLower}});
     }
 
-    public function destroy({{modelName}} ${{modelNameLower}})
+    public function destroy({{modelName}} ${{modelNameSingularLower}})
     {
-        ${{modelNameLower}}->delete();
+        ${{modelNameSingularLower}}->delete();
         return response()->json(null, Response::HTTP_NO_CONTENT);
     }
 }

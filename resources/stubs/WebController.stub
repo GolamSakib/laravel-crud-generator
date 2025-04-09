@@ -26,26 +26,26 @@ class {{modelName}}Controller extends Controller
             ->with('success', '{{modelName}} created successfully.');
     }
 
-    public function show({{modelName}} ${{modelNameLower}})
+    public function show({{modelName}} ${{modelNameSingularLower}})
     {
-        return view('{{modelNameLower}}.show', compact('{{modelNameLower}}'));
+        return view('{{modelNameLower}}.show', compact('{{modelNameSingularLower}}'));
     }
 
-    public function edit({{modelName}} ${{modelNameLower}})
+    public function edit({{modelName}} ${{modelNameSingularLower}})
     {
-        return view('{{modelNameLower}}.edit', compact('{{modelNameLower}}'));
+        return view('{{modelNameLower}}.edit', compact('{{modelNameSingularLower}}'));
     }
 
-    public function update({{modelName}}Request $request, {{modelName}} ${{modelNameLower}})
+    public function update({{modelName}}Request $request, {{modelName}} ${{modelNameSingularLower}})
     {
-        ${{modelNameLower}}->update($request->validated());
+        ${{modelNameSingularLower}}->update($request->validated());
         return redirect()->route('{{modelNameLower}}.index')
             ->with('success', '{{modelName}} updated successfully.');
     }
 
-    public function destroy({{modelName}} ${{modelNameLower}})
+    public function destroy({{modelName}} ${{modelNameSingularLower}})
     {
-        ${{modelNameLower}}->delete();
+        ${{modelNameSingularLower}}->delete();
         return redirect()->route('{{modelNameLower}}.index')
             ->with('success', '{{modelName}} deleted successfully.');
     }

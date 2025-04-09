@@ -95,19 +95,22 @@ private function generateController($model, $type = 'web')
     $modelPlural = Str::plural($model);
     $modelLower = Str::plural(Str::snake($model));
     $modelPluralLower = Str::plural($modelLower);
+    $modelSingularLower = Str::snake($model);
 
     $controllerTemplate = str_replace(
         [
             '{{modelName}}',
             '{{modelNamePlural}}',
             '{{modelNameLower}}',
-            '{{modelNamePluralLower}}'
+            '{{modelNamePluralLower}}',
+            '{{modelNameSingularLower}}'
         ],
         [
             $model,
             $modelPlural,
             $modelLower,
-            $modelPluralLower
+            $modelPluralLower,
+            $modelSingularLower
         ],
         $this->getStub($type === 'web' ? 'WebController' : 'ApiController')
     );

@@ -19,4 +19,5 @@ Route::get('/', function () {
 
 
 
-Route::resource('orders', App\Http\Controllers\OrderController::class);
+Route::resource('projects', App\Http\Controllers\ProjectController::class);
+Route::resource('projects', App\Http\Controllers\ProjectController::class);
