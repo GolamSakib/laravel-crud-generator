@@ -19,5 +19,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
-Route::apiResource('projects', App\Http\Controllers\Api\ProjectController::class);
-Route::apiResource('projects', App\Http\Controllers\Api\ProjectController::class);
+
+
